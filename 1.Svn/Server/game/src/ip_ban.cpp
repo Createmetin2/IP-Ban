@@ -26,17 +26,12 @@ bool IsBanIP(struct in_addr in)
 void AddBanIP(const char* ip)
 {
 	const char* filename = "/usr/game/auth/BANIP";
-	FILE* fp = fopen(filename, "w");
+	FILE* fp = fopen(filename, "a");
 	if (fp) {
-		for (const auto & [f,s] : mapBanIP)
-			for (auto getip : s)
-				fprintf(fp, "%s\n", getip.GetIP());
 		fprintf(fp, "%s\n", ip);
 		fclose(fp);
 	}
-	else {
+	else
 		sys_log(0, "cannot open BANIP");
-		return;
-	}
 }
 #endif
