@@ -1,20 +1,4 @@
 //Find
-		int hash()
-		{
-			return (dwStart & 0x000000FF);
-		}
-		
-///Add
-#ifdef _ENABLE_IPBAN_
-		const char* GetIP()
-		{
-			struct in_addr in_ip;
-			in_ip.s_addr = dwStart;
-			return inet_ntoa(in_ip);
-		}
-#endif
-
-//Find
 bool IsBanIP(struct in_addr in)
 {
 	...
